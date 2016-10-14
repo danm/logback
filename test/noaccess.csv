@@ -1,0 +1,6 @@
+Fri Oct 14 2016 15:59:58 GMT+0100 (BST),info,This is an info test,
+Fri Oct 14 2016 15:59:58 GMT+0100 (BST),warning,This is a warning test,
+Fri Oct 14 2016 15:59:58 GMT+0100 (BST),error,This is an error test,
+Fri Oct 14 2016 15:59:58 GMT+0100 (BST),4,This is a custom number test,
+Fri Oct 14 2016 15:59:58 GMT+0100 (BST),custom,This is a custom type test,
+Fri Oct 14 2016 16:20:20 GMT+0100 (BST),so is this,This is a test,and this

@@ -1,0 +1,25 @@
+{
+  "name": "logback",
+  "version": "1.0.0",
+  "description": "Structured Logger for Node",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danm/logback.git"
+  },
+  "keywords": [
+    "logger"
+  ],
+  "author": "Daniel Morrison <daniel.morrison@bbc.co.uk>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/danm/logback/issues"
+  },
+  "homepage": "https://github.com/danm/logback#readme"
+}
