@@ -54,11 +54,11 @@ let message = "Lorem ipsum dolor sit amet";
 //the type of log that is being written. This can be a custom string or an int
 //string/int, optional, default: info
 //0: info, 1: warning, 2: error
-let message = "Parsed";
+let type = "Parsed";
 
 //the identifier can be any string to identify the module, method, line or function
 //string, optional, default: null
-let message = "index";
+let identifier = "index";
 
 //method to append to log file
 c.a(message, type, identifier);
