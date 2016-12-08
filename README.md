@@ -1,6 +1,6 @@
 # Logback
 ------
-Structured log output in either CSV or JSON
+Structured and opinionated log output in either CSV or JSON to various endpoints. Currently supporting log files, ElasticSearch and Cloudwatch Logs.
 
 ## example
 
@@ -33,7 +33,35 @@ const Logback = require('logback');
 const appname = 'app name';
 
 //location of the log file to append to.
-//string, optional, default: current directory
+//string or object
+//optional, default: current directory
+//object
+
+const location = {
+    file: {
+        location: 'location/to.log',
+        level: 0 //custom events, info, warning and errors
+    },
+    file: {
+        location: 'location/to.log',
+        level: 1 //info, warning and errors 
+    },
+    elastic: {
+        endpoint: 'url/of/elastic',
+        level: 2 //warnings and errors (json only)
+    },
+    cloudwatch: {
+        level: 3 //Errors only,
+        region: 'eu-west-1',
+        logGroupName: '',
+        logStreamName: '',
+        accessKeyId: '', //optional
+        secretAccessKey: '' //optional
+    }
+}
+
+//string
+
 const location = '/var/log/app.csv';
 
 //type of output (json, csv)
@@ -86,3 +114,5 @@ c.d(obj[, opts]);
 ```bash
 npm test
 ```
+
+

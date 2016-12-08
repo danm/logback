@@ -1,0 +1,5 @@
+Thu Dec 08 2016 17:56:44 GMT+0000 (GMT),info,This is an info test,,logback test
+Thu Dec 08 2016 17:56:44 GMT+0000 (GMT),warning,This is a warning test,,logback test
+Thu Dec 08 2016 17:56:44 GMT+0000 (GMT),error,This is an error test,,logback test
+Thu Dec 08 2016 17:56:44 GMT+0000 (GMT),4,This is a custom number test,,logback test
+Thu Dec 08 2016 17:56:44 GMT+0000 (GMT),custom,This is a custom type test,,logback test
