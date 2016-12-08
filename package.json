@@ -1,6 +1,6 @@
 {
   "name": "logback",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Structured Logger for Node",
   "main": "index.js",
   "directories": {
