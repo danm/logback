@@ -8,7 +8,7 @@ Structured and opinionated log output in either CSV or JSON to various endpoints
 var Logback = require('logback');
 var c = new Logback('app name', 'location/of.log', 'csv');
 
-//appends text to log
+//appends string to log file
 c.a('Lorem ipsum dolor sit amet');
 
 //shortcut of console.log()
@@ -19,6 +19,13 @@ c.a('Lorem ipsum dolor sit amet');
 
 ```bash
 npm install logback --save
+```
+
+## simple usage
+```js
+const Logback = require('logback');
+const c = new Logback();
+c.a('Lorem ipsum dolor sit amet'); //appends string to log file
 ```
 
 ## usage
