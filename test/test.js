@@ -26,7 +26,7 @@ describe('File output', function() {
         c.a('Message', 1, 'File');
         //assert
         let file = fs.readFileSync(__dirname + '/output.csv');
-        expect(file.toString()).to.equal(new Date() + ',info,Message,File,logback test\n');
+        expect(file.toString()).to.equal(new Date() + ',info,Message,File,' + c.id + ',logback test\n');
     });
 
     it('should output allow a single argument', function() {
@@ -39,7 +39,7 @@ describe('File output', function() {
         c.a('This is a test');
         //assert
         let file = fs.readFileSync(__dirname + '/output.csv');
-        expect(file.toString()).to.equal(new Date() + ',info,This is a test,,logback test\n');
+        expect(file.toString()).to.equal(new Date() + ',info,This is a test,,' + c.id + ',logback test\n');
     });
 
     it('should output log different types', function() {
@@ -58,11 +58,11 @@ describe('File output', function() {
         c.a('This is a custom type test', 'custom');
 
         //assert
-        expected = new Date() + ",info,This is an info test,,logback test\n";
-        expected += new Date() + ",warning,This is a warning test,,logback test\n";
-        expected += new Date() + ",error,This is an error test,,logback test\n";
-        expected += new Date() + ",4,This is a custom number test,,logback test\n";
-        expected += new Date() + ",custom,This is a custom type test,,logback test\n";
+        expected = new Date() + ",info,This is an info test,," + c.id + ",logback test\n";
+        expected += new Date() + ",warning,This is a warning test,," + c.id + ",logback test\n";
+        expected += new Date() + ",error,This is an error test,," + c.id + ",logback test\n";
+        expected += new Date() + ",4,This is a custom number test,," + c.id + ",logback test\n";
+        expected += new Date() + ",custom,This is a custom type test,," + c.id + ",logback test\n";
 
         let file = fs.readFileSync(__dirname + '/output.csv');
         expect(file.toString()).to.equal(expected);
@@ -86,7 +86,7 @@ describe('File output', function() {
         c.a('This is a test');
         //assert
         let file = fs.readFileSync(__dirname + '/object.csv');
-        expect(file.toString()).to.equal(new Date() + ',info,This is a test,,logback test\n');
+        expect(file.toString()).to.equal(new Date() + ',info,This is a test,,' + c.id + ',logback test\n');
 
     });
 
@@ -108,6 +108,28 @@ describe('File output', function() {
         //assert
         // console.log(process.stdout.write.calledOnce);
         expect(spy.calledOnce).to.be.true;
+    });
+
+    it('should provide memory debugging', function() {
+
+        let expected;
+
+        //arrange
+        if (fs.existsSync(__dirname + '/object.csv')) {
+            fs.unlinkSync(__dirname + '/object.csv');
+        }
+        const loc = {
+            file: {
+                location: __dirname + '/object.csv',
+                level: 0
+            }
+        };
+        const c = new Logback('logback test', loc, 'csv');
+        //act
+        c.m();
+        //assert
+        let file = fs.readFileSync(__dirname + '/object.csv');
+        expect(file.toString()).to.equal(new Date() + ',info,This is a test,,' + c.id + ',logback test\n');
     });
 
     //add your endpoint here
